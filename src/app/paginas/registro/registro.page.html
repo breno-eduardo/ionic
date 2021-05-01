@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-input type="text" placeholder="E-mail" [(ngModel)]="email"></ion-input>
+
+  <ion-input type="password" placeholder="Senha" [(ngModel)]="Senha"></ion-input>
+
+  <ion-button (click)="RegistroOk()">Registrar</ion-button>
+  <ion-button (click)="Senha()">Senha</ion-button>
+
+  <ion-button routerLink= "/inicio">
+    Cadastrar
+  </ion-button>
+ 
+</ion-content>
