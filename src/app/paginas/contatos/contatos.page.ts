@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContatosService } from '../../servicos/contatos.service';
 
 @Component({
   selector: 'app-contatos',
@@ -6,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contatos.page.scss'],
 })
 export class ContatosPage implements OnInit {
+  contatos: any;
+  
 
-  constructor() { }
+  constructor(private servico: ContatosService) { }
 
   ngOnInit() {
-  }
+    console.log(this.servico.listar() );
+    this.servico.listar().subscribe(data =>{
+      this.contatos = data.map(e =>{
+        return{
+          id: e.payload.doc.id,
+          nome: e.payload.doc.data()['nome'],
+          telefone: e.payload.doc.data()['telefone'],
+          email: e.payload.doc.data()['email']
+          
+              }
+})
+  console.log(this.contatos);
+});
+}
 
 }

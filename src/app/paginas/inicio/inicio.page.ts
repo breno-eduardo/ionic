@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { AutenticacaoService } from '../../servicos/autenticacao.service';
+
 
 @Component({
   selector: 'app-inicio',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioPage implements OnInit {
 
-  constructor() { }
+  constructor(private nav : NavController, private servico: AutenticacaoService) { }
+
+
 
   ngOnInit() {
+
+  }
+  sair() {
+   this.servico.sair().then(res => {
+      this.nav.navigateForward('home');   
+    }, err =>{
+      console.log(err);
+    });
   }
 
 }

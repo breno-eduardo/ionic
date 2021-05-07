@@ -14,5 +14,8 @@ export class ContatosService {
 
   return this.firestore.collection('colecao').add(objeto);
   }
+  listar(){
+    return this.firestore.collection('colecao').snapshotChanges();
+  }
 }
 

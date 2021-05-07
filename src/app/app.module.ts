@@ -12,13 +12,16 @@ import { AngularFirestoreModule } from '@angular/fire/firestore'
 
 import { environment } from '../environments/environment';
 
+import { AngularFireAuthModule} from '@angular/fire/auth';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule, AngularFirestoreModule,
-  AngularFireModule.initializeApp(environment.firebaseConfig)],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
-  bootstrap: [AppComponent],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
+            AngularFireModule, AngularFirestoreModule,AngularFireAuthModule,
+            AngularFireModule.initializeApp(environment.firebaseConfig)],
+            providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+            bootstrap: [AppComponent],
 })
 export class AppModule {}
   

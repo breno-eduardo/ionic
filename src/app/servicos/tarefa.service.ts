@@ -18,5 +18,14 @@ export class TarefaService {
 
   listar(){
     return this.firestore.collection('tarefas').snapshotChanges();
-  }
+  } 
+
+excluir(objeto){
+  return this.firestore.doc('tarefas/' + objeto.id).delete();
+}
+
+alterar(objeto, id){
+  return this.firestore.doc('tarefas/' + id).update(objeto);
+}
+
 }
