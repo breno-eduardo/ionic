@@ -21,7 +21,7 @@ export class RegistroPage implements OnInit {
     let usuario = {};
 
     usuario['email'] = this.email;
-    usuario['senha'] = this.Senha;
+    usuario['senha'] = this.senha;
 
    this.servico.cadastrar(usuario).then(res => {
       this.nav.navigateForward('inicio');   
